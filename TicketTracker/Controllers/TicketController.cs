@@ -13,5 +13,9 @@ namespace TicketTracker.Controllers
         {
             return View();
         }
+        public ActionResult ListTickets()
+        {
+            return View();
+        }
     }
 }
