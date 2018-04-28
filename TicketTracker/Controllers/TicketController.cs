@@ -13,6 +13,10 @@ namespace TicketTracker.Controllers
         {
             return View();
         }
+        /// <summary>
+        /// To list the tickets
+        /// </summary>
+        /// <returns></returns>
         public ActionResult ListTickets()
         {
             return View();
