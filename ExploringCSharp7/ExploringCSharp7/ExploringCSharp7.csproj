@@ -64,6 +64,7 @@
     <Compile Include="DeconstructorUsage.cs" />
     <Compile Include="Interfaces\IDeconstructor.cs" />
     <Compile Include="Interfaces\ITuples.cs" />
+    <Compile Include="LocalFunctionDemo.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tuples.cs" />
