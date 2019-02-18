@@ -46,10 +46,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AbstractFactory.cs" />
+    <Compile Include="AbstractFactory1.cs" />
+    <Compile Include="Builder.cs" />
     <Compile Include="CarManufacturingPlant.cs" />
     <Compile Include="FactoryMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Prototype.cs" />
     <Compile Include="SandwitchCreator.cs" />
+    <Compile Include="Singleton.cs" />
+    <Compile Include="Structural\Composite.cs" />
     <Compile Include="TestCondition.cs" />
   </ItemGroup>
   <ItemGroup>
