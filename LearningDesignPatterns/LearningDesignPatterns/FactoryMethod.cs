@@ -50,5 +50,20 @@ namespace LearningDesignPatterns
 
             Console.ReadLine();
         }
+
+        public int Method1(int a, int b)
+        {
+            return 1;
+        }
+
+        public string Method1(int a, int b)
+        {
+            return string.Empty;
+        }
+
+        public string Method1(int a, string b)
+        {
+            return string.Empty;
+        }
     }
 }
