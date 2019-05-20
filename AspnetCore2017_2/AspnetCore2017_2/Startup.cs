@@ -1,4 +1,5 @@
 ﻿using System;
+using AspnetCore2017_2.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -20,6 +21,8 @@ namespace AspnetCore2017_2
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddSingleton<IEmployeeRepository, EmployeeRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -32,33 +35,35 @@ namespace AspnetCore2017_2
                 app.UseDeveloperExceptionPage();
             }
 
-            DefaultFilesOptions files = new DefaultFilesOptions();
-            files.DefaultFileNames.Clear();
-            files.DefaultFileNames.Add("Foo.html");
-            app.UseDefaultFiles(files);
+            app.UseDefaultFiles();
+            //DefaultFilesOptions files = new DefaultFilesOptions();
+            //files.DefaultFileNames.Clear();
+            //files.DefaultFileNames.Add("Foo.html");
+            //app.UseDefaultFiles(files);
             app.UseStaticFiles();
+            app.UseMvcWithDefaultRoute();
 
-            FileServerOptions fileServerOptions = new FileServerOptions();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
-            fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("Foo.html");
-            app.UseFileServer();
+            //FileServerOptions fileServerOptions = new FileServerOptions();
+            //fileServerOptions.DefaultFilesOptions.DefaultFileNames.Clear();
+            //fileServerOptions.DefaultFilesOptions.DefaultFileNames.Add("Foo.html");
+            //app.UseFileServer();
 
-            app.Use(async (context, next) =>
-            {
-                string text = $"Hello World! This process is being run by: " +
-                              System.Diagnostics.Process.GetCurrentProcess().ProcessName;
-                string newKey = _configService["MyKey"];
-                await context.Response.WriteAsync(text);
-                await next();
-            });
+            //app.Use(async (context, next) =>
+            //{
+            //    string text = $"Hello World! This process is being run by: " +
+            //                  System.Diagnostics.Process.GetCurrentProcess().ProcessName;
+            //    string newKey = _configService["MyKey"];
+            //    await context.Response.WriteAsync(text);
+            //    await next();
+            //});
 
             app.Run(async (context) =>
             {
-                throw new Exception("Invalid Page");
-                string text = $"Hello World! This process is being run by: " +
-                              System.Diagnostics.Process.GetCurrentProcess().ProcessName;
-                string newKey = _configService["MyKey"];
-                await context.Response.WriteAsync(text);
+                //throw new Exception("Invalid Page");
+                //string text = $"Hello World! This process is being run by: " +
+                //              System.Diagnostics.Process.GetCurrentProcess().ProcessName;
+                //string newKey = _configService["MyKey"];
+                await context.Response.WriteAsync("Hello World");
             });
         }
     }
